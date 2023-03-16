@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!--    配置实体类和数据库表之间的映射关系
+        name: 实体类全路径类名
+        table: 数据库表名称
+        -->
+    <class name="com.hbnu.pojo.User" table="tb_user">
+<!--        配置主键映射关系
+            name: 实体类中唯一属性
+            column: 数据库表名的字段名，可省略，省略后使用name
+-->
+        <id name="uId" column="id">
+<!--            主键生成策略-->
+            <generator class="native"/>
+        </id>
+<!--        配置实体类中其他属性的映射关系-->
+        <property name="username" column="name"/>
+        <property name="address" column="address"/>
+    </class>
+</hibernate-mapping>

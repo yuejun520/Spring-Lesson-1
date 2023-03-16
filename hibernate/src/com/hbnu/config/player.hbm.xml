@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hbnu.pojo.Player" table="tb_player">
+        <id name="pid">
+            <generator class="native"/>
+        </id>
+        <property name="name"/>
+        <property name="gender"/>
+
+        <!--table属性值表示多对多中第三张中间表的名称-->
+        <set name="roles" table="tb_pr" cascade="save-update">
+            <!--key标签中的属性column值表示当前配置文件对应的表在第三张中间表的外键名称-->
+            <key column="pid"/>
+            <many-to-many class="com.hbnu.pojo.Role" column="rid"/>
+            <!--多对多
+            class:表示与当前配置文件对应的实体类全路径名称
+            columb:-->
+        </set>
+    </class>
+</hibernate-mapping>

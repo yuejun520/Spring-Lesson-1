@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hbnu.pojo.LinkMan" table="tb_linkman">
+        <id name="lid" column="lid">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="name"/>
+        <property name="tel" column="tel"/>
+        <property name="gender" column="gender"/>
+
+        <many-to-one name="customer" class="com.hbnu.pojo.Customer" column="clid"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hbnu.pojo.Customer" table="tb_customer">
+        <id name="cid">
+            <generator class="native"/>
+        </id>
+
+        <property name="name"/>
+        <property name="address"/>
+
+        <set name="linkManSet">
+<!--            在hibernate中双向维护外键-->
+            <key column="clid"/><!--外键名-->
+            <one-to-many class="com.hbnu.pojo.LinkMan"/>
+        </set>
+    </class>
+</hibernate-mapping>
